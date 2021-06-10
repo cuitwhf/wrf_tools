@@ -5,7 +5,7 @@ from cartopy.io.shapereader import Reader
 import cartopy.feature as cfeat
 import cartopy.crs as ccrs
 import numpy as np
-
+import proplot as plot
 
 def basemap_chengdu(ax, shppath, proj):
     '''
@@ -21,7 +21,7 @@ def basemap_chengdu(ax, shppath, proj):
     rcParams.update(config)  # Apply config in matplotlib
 
     # 设置网格线间距
-    ti = 0.10
+    ti = 0.2
     # 设置extent
     extent = [102.85, 105.0, 29.95, 31.5]
 
@@ -45,6 +45,8 @@ def basemap_chengdu(ax, shppath, proj):
     gl.rotate_label = False
     gl.xlocator = mticker.FixedLocator([round(i, 3) for i in np.arange(extent[0], extent[1] + ti, ti)])
     gl.ylocator = mticker.FixedLocator([round(i, 3) for i in np.arange(extent[2], extent[3] + ti, ti)])
+
+    ax.format(longrid=False, latgrid=False)
 
 
 def basemap_scb(ax, shppath, proj):
@@ -83,6 +85,7 @@ def basemap_scb(ax, shppath, proj):
     gl.rotate_label = False
     gl.xlocator = mticker.FixedLocator([round(i, 3) for i in np.arange(extent[0], extent[1] + ti, ti)])
     gl.ylocator = mticker.FixedLocator([round(i, 3) for i in np.arange(extent[2], extent[3] + ti, ti)])
+    ax.format(longrid=False, latgrid=False)
 
     # Add city label
     ax.text(106.30, 29.38, 'Chongqing', ha='left', va='baseline')
