@@ -1,3 +1,3 @@
-#  read_wps_landuse_data
-
-用于读取WPS静态地理数据中的下垫面类型，将其读取为Geotiff格式。
+# read_wps_landuse_data
+仅需要输入数据所在文件夹和输出路径即可.
+将WRF自带的静态地理数据数据读取为Geotiff.
