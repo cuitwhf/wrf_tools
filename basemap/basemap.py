@@ -39,14 +39,14 @@ def basemap_chengdu(ax, shppath, proj):
     ax.set_extent(extent, crs=proj)
 
     # 设置网格线
-    gl = ax.gridlines(crs=proj, draw_labels=True, linewidth=0.5, color='black', alpha=0.5, linestyle='--')
-    gl.top_labels = False
-    gl.right_labels = False
-    gl.rotate_label = False
-    gl.xlocator = mticker.FixedLocator([round(i, 3) for i in np.arange(extent[0], extent[1] + ti, ti)])
-    gl.ylocator = mticker.FixedLocator([round(i, 3) for i in np.arange(extent[2], extent[3] + ti, ti)])
+    # gl = ax.gridlines(crs=proj, draw_labels=True, linewidth=0.5, color='black', alpha=0.5, linestyle='--')
+    # gl.top_labels = False
+    # gl.right_labels = False
+    # gl.rotate_label = False
+    # gl.xlocator = mticker.FixedLocator([round(i, 3) for i in np.arange(extent[0], extent[1] + ti, ti)])
+    # gl.ylocator = mticker.FixedLocator([round(i, 3) for i in np.arange(extent[2], extent[3] + ti, ti)])
 
-    ax.format(longrid=False, latgrid=False)
+    ax.format(longrid=True, latgrid=True, lonlabels='b', latlabels='l')
 
 
 def basemap_scb(ax, shppath, proj):
@@ -110,17 +110,17 @@ def basemap_scb(ax, shppath, proj):
 
 
 # 测试BasemapDraw
-if __name__ == '__main__':
-    plt.figure(figsize=(8, 8))
-    proj = ccrs.PlateCarree()
-    ax = plt.subplot(111, projection=proj)
-
-    # 测试 成都底图绘制 basemap_chengdu
-    # shppath = r'shp_chengdu\Chengdu.shp'
-    # basemap_chengdu(ax, shppath, proj)
-
-    # 测试 成都底图绘制 basemap_scb
-    shppath = r'shp_scb\SCB.shp'
-    basemap_scb(ax, shppath, proj)
-
-    plt.show()
+# if __name__ == '__main__':
+    # plt.figure(figsize=(8, 8))
+    # proj = ccrs.PlateCarree()
+    # ax = plt.subplot(111, projection=proj)
+    #
+    # # 测试 成都底图绘制 basemap_chengdu
+    # # shppath = r'shp_chengdu\Chengdu.shp'
+    # # basemap_chengdu(ax, shppath, proj)
+    #
+    # # 测试 成都底图绘制 basemap_scb
+    # shppath = r'shp_scb\SCB.shp'
+    # basemap_scb(ax, shppath, proj)
+    #
+    # plt.show()
